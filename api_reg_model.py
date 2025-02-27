@@ -13,6 +13,7 @@ class request_body(BaseModel):
 # Load the model
 grade_model = joblib.load('./reg_model.pkl')
 
+@app.post('/predict')
 def predict(data : request_body):
   # Prepare data for prediction
   input_feature = [[data.study_hours]]
